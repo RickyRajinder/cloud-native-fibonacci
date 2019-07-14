@@ -25,7 +25,7 @@ deploy:
        app: containers-fib
        env: ContainersFib-env
        bucket_name: elasticbeanstalk-us-west-2-643247086707
-       bucket_path: containers
+       bucket_path: containersfib
        on:
                branch: master
        access_key_id: $AWS_ACCESS_KEY
