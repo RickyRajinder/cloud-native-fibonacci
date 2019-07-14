@@ -19,3 +19,15 @@ after_success:
         - docker push rickywraith/containers-server
         - docker push rickywraith/containers-worker
 
+deploy:
+       provider: elasticbeanstalk
+       region: us-west-2
+       app: containers
+       env: Containers-env
+       bucket_name: elasticbeanstalk-us-west-2-643247086707
+       bucket_path: containers
+       on:
+               branch: master
+       access_key_id: $AWS_ACCESS_KEY
+       secret_access_key: 
+              secure: $AWS_SECRET_KEY
