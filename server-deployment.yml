@@ -17,3 +17,39 @@ spec:
                                   image: rickywraith/containers-server:v1
                                   ports:
                                           - containerPort: 5000
+                                  env:
+                                          - name: REDIS_HOST
+                                            valueFrom:
+                                                    secretKeyRef:
+                                                            name: redis-secrets
+                                                            key: redisHost
+                                          - name: REDIS_PORT
+                                            valueFrom:
+                                                    secretKeyRef:
+                                                            name: redis-secrets
+                                                            key: redisPort
+                                          - name: PGUSER
+                                            valueFrom:
+                                                    secretKeyRef:
+                                                            name: postgres-secrets
+                                                            key: pgUser
+                                          - name: PGHOST
+                                            valueFrom:
+                                                    secretKeyRef:
+                                                            name: postgres-secrets
+                                                            key: pgHost
+                                          - name: PGPORT
+                                            valueFrom:
+                                                    secretKeyRef:
+                                                            name: postgres-secrets
+                                                            key: pgPort
+                                          - name: PGDATABASE
+                                            valueFrom:
+                                                    secretKeyRef:
+                                                            name: postgres-secrets
+                                                            key: pgDatabase
+                                          - name: PGPASSWORD
+                                            valueFrom:
+                                                    secretKeyRef:
+                                                            name: postgres-secrets
+                                                            key: pgPassword 
