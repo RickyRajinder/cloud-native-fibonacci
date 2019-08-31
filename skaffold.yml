@@ -1,0 +1,41 @@
+apiVersion: skaffold/v1beta13
+kind: Config
+build:
+        local:
+                push: false
+        artifacts:
+                - image: rickywraith/containers-client 
+                  context: src/src/client
+                  docker:
+                          dockerfile: Dockerfile.dev
+                  sync:
+                          infer:
+                                  - '**/*.js'
+                                  - '**/*.css'
+                                  - '**/*.html'
+                - image: rickywraith/containers-worker
+                  context: src/src/worker
+                  docker:
+                          dockerfile: Dockerfile.dev
+                  sync:
+                          infer:
+                                  - '**/*.js'
+                                  - '**/*.css'
+                                  - '**/*.html'
+                - image: rickywraith/containers-server
+                  context: src/src/server
+                  docker:
+                          dockerfile: Dockerfile.dev
+                  sync:
+                          infer:
+                                  - '**/*.js'
+                                  - '**/*.css'
+                                  - '**/*.html' 
+deploy:
+        kubectl:
+                manifests:
+                        - client-deployment.yml
+                        - server-deployment.yml
+                        - worker-deployment.yml
+                        - server-cluster-ip-service.yml
+                        - client-cluster-ip-service.yml
