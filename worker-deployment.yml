@@ -14,7 +14,7 @@ spec:
                 spec:
                         containers:
                                    - name: worker
-                                     image: rickywraith/containers-worker:latest
+                                     image: rickywraith/containers-worker:v10
                                      env:
                                              - name: REDIS_HOST
                                                valueFrom:

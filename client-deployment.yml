@@ -14,6 +14,6 @@ spec:
                 spec:
                         containers:
                                 - name: client
-                                  image: rickywraith/containers-client:v6
+                                  image: rickywraith/containers-client:v10
                                   ports:
                                         - containerPort: 3000                      

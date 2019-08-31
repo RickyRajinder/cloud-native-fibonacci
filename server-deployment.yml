@@ -14,7 +14,7 @@ spec:
                 spec:
                         containers:
                                 - name: server
-                                  image: rickywraith/containers-server:v1
+                                  image: rickywraith/containers-server:v10
                                   ports:
                                           - containerPort: 5000
                                   env:
